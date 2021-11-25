@@ -37,8 +37,8 @@ In order to check my operations As a bank client I want to see the history (oper
 - List of Transactions
 
 ## Tests
-- Test for new transaction Desposit Type
-- Test for new transaction WithDraw Type
+- Test for new transaction Desposit Operation
+- Test for new transaction WithDraw Operation
 - Test for create Two deposit and Check Balance is equal
 - Test length of Transactions after intert Two Transactions
 - Test Withdrawal Transaction
@@ -49,6 +49,6 @@ In order to check my operations As a bank client I want to see the history (oper
 __Important__: Because __ArrayOfTransactions__ is Global Variable, is necessary restart value in each test
 
 ## Comments
-It was expected to use different __Entities|Repositories__ with__DDD__ architecture, but for now we have used something simple following the TDD principles of make it work and then refactoring
+It was expected to use different __Entities|Repositories__ with __DDD__ architecture, but for now we have used something simple following the __TDD__ principles of make it work and then refactoring
 
 __Written with :green_heart: by Dimas__
