@@ -7,11 +7,19 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestCreateTransaction(t *testing.T) {
+func TestCreateDepositTransaction(t *testing.T) {
 	timeNow := time.Now()
 
-	transactionMock := Transaction{Date: timeNow, Amount: 2.00, Balance: 2.00, UserId: 1}
+	transactionMock := Transaction{Date: timeNow, Amount: 2.00, Balance: 2.00, UserId: 1, Operation: "deposit"}
 	transaction := CreateDepositTransaction(timeNow, 2.00, 1, nil)
+
+	assert.Equal(t, transactionMock, transaction, "The two Transactions should be the same.")
+}
+func TestCreateWithdrawTransaction(t *testing.T) {
+	timeNow := time.Now()
+	ArrayTransactions = nil
+	transactionMock := Transaction{Date: timeNow, Amount: 2.00, Balance: 2.00, UserId: 1, Operation: "withdraw"}
+	transaction := CreateWithdrawTransaction(timeNow, 2.00, 1, nil)
 
 	assert.Equal(t, transactionMock, transaction, "The two Transactions should be the same.")
 }
@@ -19,6 +27,7 @@ func TestCreateTransaction(t *testing.T) {
 func TestCreateTwoDepositTransactionBalance(t *testing.T) {
 
 	timeNow := time.Now()
+	ArrayTransactions = nil
 	transactionOne := CreateDepositTransaction(timeNow, 2.00, 1, nil)
 	transactionTwo := CreateDepositTransaction(timeNow, 3.00, 1, &transactionOne)
 
@@ -31,6 +40,7 @@ func TestCreateTwoDepositTransactionBalance(t *testing.T) {
 func TestInsertTwoTransaction(t *testing.T) {
 
 	timeNow := time.Now()
+	ArrayTransactions = nil
 
 	transactionOne := CreateDepositTransaction(timeNow, 2.00, 1, nil)
 	transactionTwo := CreateDepositTransaction(timeNow, 3.00, 1, &transactionOne)
@@ -43,6 +53,8 @@ func TestInsertTwoTransaction(t *testing.T) {
 
 func TestWithdrawalTransaction(t *testing.T) {
 	timeNow := time.Now()
+	ArrayTransactions = nil
+
 	transactionOne := CreateDepositTransaction(timeNow, 3.00, 1, nil)
 	transactionTwo := CreateWithdrawTransaction(timeNow, 3.00, 1, &transactionOne)
 
@@ -54,6 +66,8 @@ func TestWithdrawalTransaction(t *testing.T) {
 
 func TestWithdrawalBalanceminorZeroTransaction(t *testing.T) {
 	timeNow := time.Now()
+	ArrayTransactions = nil
+
 	transactionOne := CreateDepositTransaction(timeNow, 3.00, 1, nil)
 	transactionTwo := CreateWithdrawTransaction(timeNow, 4.00, 1, &transactionOne)
 
@@ -65,6 +79,7 @@ func TestWithdrawalBalanceminorZeroTransaction(t *testing.T) {
 
 func TestGetTransactions(t *testing.T) {
 	timeNow := time.Now()
+	ArrayTransactions = nil
 
 	transactionOne := CreateDepositTransaction(timeNow, 2.00, 1, nil)
 	transactionTwo := CreateDepositTransaction(timeNow, 3.00, 1, &transactionOne)
@@ -78,6 +93,7 @@ func TestGetTransactions(t *testing.T) {
 }
 
 func TestGetTransactionsZero(t *testing.T) {
+	ArrayTransactions = nil
 
 	totalTransactions := GetTransactions()
 

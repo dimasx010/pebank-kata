@@ -1,15 +1,15 @@
 package transaction
 
 import (
-	"errors"
 	"time"
 )
 
 type Transaction struct {
-	Date    time.Time
-	Amount  float32
-	Balance float32
-	UserId  int
+	Date      time.Time
+	Amount    float32
+	Balance   float32
+	UserId    int
+	Operation string
 }
 
 var ArrayTransactions []Transaction
@@ -26,6 +26,8 @@ func CreateDepositTransaction(date time.Time, amount float32, userId int, lastTr
 	if lastTransaction != nil {
 		transaction.Balance = transaction.Amount + lastTransaction.Balance
 	}
+
+	transaction.Operation = "deposit"
 
 	return transaction
 }
@@ -51,10 +53,7 @@ func CreateWithdrawTransaction(date time.Time, amount float32, userId int, lastT
 	if lastTransaction != nil {
 		transaction.Balance = lastTransaction.Balance - transaction.Amount
 	}
-
-	if transaction.Balance < 0 {
-		errors.New("string del error")
-	}
+	transaction.Operation = "withdraw"
 
 	return transaction
 }
