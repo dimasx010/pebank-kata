@@ -8,18 +8,18 @@ Think of your personal bank account experience When in doubt, go for the simples
 Deposit and Withdrawal Account statement (date, amount, balance) Statement printing
 
 User Stories
-- US 1: :ok:
+- :ok: US 1: 
 In order to save money As a bank client I want to make a deposit in my account
 
-- US 2: :ok:
+- :ok: US 2: 
 In order to retrieve some or all of my savings As a bank client I want to make a withdrawal from my account
 
-- US 3: :ok:
+- :ok: US 3: 
 In order to check my operations As a bank client I want to see the history (operation, date, amount, balance) of my operations
 
 ## Technologies
 - [GoLang](https://golang.org/doc/code)
-- [Golang/TestyFy](https://github.com/stretchr/testify)
+- [Golang/Testyfy](https://github.com/stretchr/testify)
 
 ## Instructions
 - Clone project in your **Go directory**
@@ -27,7 +27,8 @@ In order to check my operations As a bank client I want to see the history (oper
 - Run __go mod tidy__ for Go Modules
 - Run __go run .__ for up project
 - Run __go tests__ for tests main
-- Run __go test -v .\src\transaction__ for tests transaction
+- Run __go test -v .\src\transaction__ for tests transaction (Windows)
+- Run __go test -v /src/transaction__ for tests transaction (Others)
 
 ## Done
 - Create new transaction
@@ -44,7 +45,8 @@ In order to check my operations As a bank client I want to see the history (oper
 - Test Withdrawal Transaction and balance is minor to Zero (Is possible)
 - Test for length of transactions
 - Test for length of transactions is Zero
-__Important__: Because ArrayOfTransactions is Global Variable, is necessary restart value in each test
+
+__Important__: Because __ArrayOfTransactions__ is Global Variable, is necessary restart value in each test
 
 ## Comments
 It was expected to use different __Entities|Repositories__ with__DDD__ architecture, but for now we have used something simple following the TDD principles of make it work and then refactoring
