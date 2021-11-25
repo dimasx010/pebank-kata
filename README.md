@@ -1,4 +1,4 @@
-# PeBank Kata Backend Golang
+# PeBank Kata Backend Golang :moneybag:
 
 ## Information
 The project is a Kata for check knowledge in __Golang__, __TDD__ and __Backend Logic__.
@@ -45,3 +45,5 @@ In order to check my operations As a bank client I want to see the history (oper
 
 ## Comments
 It was expected to use different __Entities|Repositories__ with__DDD__ architecture, but for now we have used something simple following the TDD principles of make it work and then refactoring
+
+__Written with :green_heart: by Dimas__
